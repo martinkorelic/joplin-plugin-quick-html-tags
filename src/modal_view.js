@@ -1,6 +1,6 @@
-// Focus on the modal instead of the editor
 (function() {
-    
+
+    // Focus on the modal instead of the editor
     let el = document.getElementById('pretags');
     if (el) el.focus();
     else document.getElementById('ctag').focus();

@@ -7,6 +7,7 @@ joplin.plugins.register({
 		const dialogs = joplin.views.dialogs;
 		const dialog = await dialogs.create('tags_dialog');
 		await joplin.views.dialogs.addScript(dialog, 'modal_view.js');
+		await joplin.views.dialogs.addScript(dialog, 'modal_view.css');
 		await dialogs.setButtons(dialog, [
 			{
 				id: 'ok',
@@ -30,7 +31,7 @@ joplin.plugins.register({
 		});
 
 		await joplin.settings.registerSetting('tags', {
-			value: null,
+			value: "",
 			type: SettingItemType.String,
 			section: 'settings.quickHTMLtags',
 			public: true,
@@ -64,6 +65,7 @@ joplin.plugins.register({
 			iconName: 'fas fa-code',
 			execute: async () => {
 				
+				// Collect settings
 				const settings_tags = await joplin.settings.value('tags') as string;
 				const settings_newlines = await joplin.settings.value('enable_newlines') as boolean;
 				const settings_md = await joplin.settings.value('enable_markdown') as boolean;
@@ -117,9 +119,9 @@ function generateDialogContext(tags : String[]) : string {
 	let pretags:string;
 
 	if (tags.length == 1 && tags[0] === "") {
-		pretags = "<p>No predefined tags set.<br>Set them under:<br><code>Tools > Options > Quick HTML tags</code></p>"
+		pretags = "<p>No predefined tags set.<br>Save a custom one here or set them under:<br><code>Tools > Options > Quick HTML tags</code></p>"
 	} else {
-		pretags = `<label for="pretags">Choose a tag:</label><br><select name="pretag" id="pretags">`
+		pretags = `<label for="pretags">Choose a tag:</label><select name="pretag" id="pretags">`
 		tags.forEach(tag => pretags += tag !== "" ? `<option value=${tag}>${tag}</option>` : "");
 		pretags += "</select>"
 	};

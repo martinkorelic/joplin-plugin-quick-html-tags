@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "description": "Joplin plugin for creating HTML tags quickly.",
   "author": "martinkorelic",
-  "homepage": "",
+  "homepage": "https://github.com/martinkorelic/joplin-plugin-quick-html-tags",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/martinkorelic/joplin-plugin-quick-html-tags/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/martinkorelic/"
+    "url": "git+https://github.com/martinkorelic/joplin-plugin-quick-html-tags"
   },
   "scripts": {
     "dist": "webpack --joplin-plugin-config buildMain && webpack --joplin-plugin-config buildExtraScripts && webpack --joplin-plugin-config createArchive",

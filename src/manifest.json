@@ -1,12 +1,12 @@
 {
 	"manifest_version": 1,
-	"id": "joplin.plugin.quick.HTML.tags",
+	"id": "joplin.plugin.quick.html.tags",
 	"app_min_version": "1.7",
 	"version": "0.1.0",
 	"name": "Quick HTML tags",
 	"description": "Create quick HTML tags.",
 	"author": "Martin Korelič",
-	"homepage_url": "",
-	"repository_url": "",
+	"homepage_url": "https://github.com/martinkorelic/joplin-plugin-quick-html-tags",
+	"repository_url": "https://github.com/martinkorelic/joplin-plugin-quick-html-tags",
 	"keywords": ["html", "tags", "quick", "joplin", "plugin"]
 }

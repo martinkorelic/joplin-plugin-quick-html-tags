@@ -1,0 +1,21 @@
+form {
+    display: contents;
+}
+
+label {
+    font-size: 20px;
+    margin: 4px;
+    display: block;
+}
+
+input {
+    font-size: 20px;
+}
+
+select {
+    font-size: 20px;
+}
+
+input:focus, select:focus {
+    outline-color: lightblue;
+}

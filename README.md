@@ -1,24 +1,55 @@
-# Joplin Plugin
+# Joplin Plugin - Quick HTML tags
 
-This is a template to create a new Joplin plugin.
+This Joplin plugin allows you to add HTML tags more conveniently and quickly.
 
-The main two files you will want to look at are:
+**Note**: Requires Joplin 1.7.11+
 
-- `/src/index.ts`, which contains the entry point for the plugin source code.
-- `/src/manifest.json`, which is the plugin manifest. It contains information such as the plugin a name, version, etc.
+**Version**: 0.1.0
 
-## Building the plugin
+## Preview
 
-The plugin is built using Webpack, which creates the compiled code in `/dist`. A JPL archive will also be created at the root, which can use to distribute the plugin.
 
-To build the plugin, simply run `npm run dist`.
 
-The project is setup to use TypeScript, although you can change the configuration to use plain JavaScript.
+## Installation
 
-## Updating the plugin framework
+- Open Joplin and navigate to `Preferences > Plugins`
+- Search for `Quick HTML tags` and click install
+- Restart Joplin
 
-To update the plugin framework, run `npm run update`.
+### Uninstall
 
-In general this command tries to do the right thing - in particular it's going to merge the changes in package.json and .gitignore instead of overwriting. It will also leave "/src" as well as README.md untouched.
+- Open Joplin and navigate to `Tools > Options > Plugins`
+- Search for `Quick HTML tags` plugin
+- Press `Delete` to remove the plugin or `Disable` to disable it
+- Restart Joplin
 
-The file that may cause problem is "webpack.config.js" because it's going to be overwritten. For that reason, if you want to change it, consider creating a separate JavaScript file and include it in webpack.config.js. That way, when you update, you only have to restore the line that include your file.
+## Usage
+
+Select the text you would like to include in the tag.
+
+To access the quick HTML shortcut:
+- press on the `Quick HTML tag` button or
+- use the shortcut `Ctrl + H`
+
+## Settings
+
+**Predefined tags**
+
+Write your predefined HTML tags seperated by semicolon ;
+This will allow you to quickly access your tags through the dropdown menu.
+You can also add tags manually via the shortcut.
+
+**Enable newlines breaking**
+
+Sometimes when using HTML tags in Joplin, the content renders incorrectly.
+This setting manually inserts newlines when needed to prevent incorrect rendering of content .
+
+**Enable markdown styling inside tags**
+
+This setting will include markdown attribute in tags to enable styling inside of tags.
+
+## Notes
+
+- Some of my personal predefined custom tags can be found [here](https://github.com/martinkorelic/my-joplin-theme).
+
+> Created on 17th July 2021
