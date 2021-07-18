@@ -8,6 +8,7 @@ This Joplin plugin allows you to add HTML tags more conveniently and quickly.
 
 ## Preview
 
+![](docs/example-quick-html-tags.gif)
 
 
 ## Installation
