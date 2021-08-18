@@ -2,9 +2,9 @@
 
 This Joplin plugin allows you to add HTML tags more conveniently and quickly.
 
-**Note**: Requires Joplin 1.7.11+
+**Note**: Requires Joplin 2.1+
 
-**Version**: 0.1.0
+**Version**: 0.1.1
 
 ## Preview
 
