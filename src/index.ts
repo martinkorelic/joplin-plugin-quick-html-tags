@@ -29,32 +29,33 @@ joplin.plugins.register({
 			label: 'Quick HTML tags',
 			iconName: 'fas fa-code'
 		});
-
-		await joplin.settings.registerSetting('tags', {
-			value: "",
-			type: SettingItemType.String,
-			section: 'settings.quickHTMLtags',
-			public: true,
-			label: 'HTML predefined tags',
-			description: 'Insert your predefined HTML tags here, seperated by semicolon ;'
+		
+		await joplin.settings.registerSettings({
+			'tags': {
+				value: "",
+				type: SettingItemType.String,
+				section: 'settings.quickHTMLtags',
+				public: true,
+				label: 'HTML predefined tags',
+				description: 'Insert your predefined HTML tags here, seperated by semicolon ;'
+			},
+			'enable_newlines': {
+				value: false,
+				type: SettingItemType.Bool,
+				section: 'settings.quickHTMLtags',
+				public: true,
+				label: 'Enable new line breaking',
+				description: 'Enable new line breaking when selected text contains newlines. Inserts newlines at the front and back so that it renders correctly.'
+			},
+			'enable_markdown': {
+				value: false,
+				type: SettingItemType.Bool,
+				section: 'settings.quickHTMLtags',
+				public: true,
+				label: 'Enable markdown inside tags',
+				description: 'Enables markdown styling inside HTML tags.'
+			}
 		});
-		await joplin.settings.registerSetting('enable_newlines', {
-			value: false,
-			type: SettingItemType.Bool,
-			section: 'settings.quickHTMLtags',
-			public: true,
-			label: 'Enable new line breaking',
-			description: 'Enable new line breaking when selected text contains newlines. Inserts newlines at the front and back so that it renders correctly.'
-		});
-		await joplin.settings.registerSetting('enable_markdown', {
-			value: false,
-			type: SettingItemType.Bool,
-			section: 'settings.quickHTMLtags',
-			public: true,
-			label: 'Enable markdown inside tags',
-			description: 'Enables markdown styling inside HTML tags.'
-		})
-
 
 		////////////////// BUTTONS, SHORTCUTS, COMMANDS //////////////////
 
