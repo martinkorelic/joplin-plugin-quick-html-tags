@@ -106,7 +106,7 @@ joplin.plugins.register({
 				if(res.attribute=='none'){
 					newSection=`${newlines ? "\n" : ""}<${tag}${settings_md ? " markdown=1" : ""}>${selectedText.length > 1 ? selectedText : ""}</${tag}>${newlines ? "\n" : ""}`;
 				}else{
-					newSection=`${newlines ? "\n" : ""}<${tag}${settings_md ? " markdown=1" : ""} ${res.attribute}=${res.attrValue}>${selectedText.length > 1 ? selectedText : ""}</${tag}>${newlines ? "\n" : ""}`
+					newSection=`${newlines ? "\n" : ""}<${tag}${settings_md ? " markdown=1" : ""} ${res.attribute}="${res.attrValue}">${selectedText.length > 1 ? selectedText : ""}</${tag}>${newlines ? "\n" : ""}`
 				}
 
 				await joplin.commands.execute('replaceSelection',newSection);
