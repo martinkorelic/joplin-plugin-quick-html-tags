@@ -81,6 +81,7 @@ joplin.plugins.register({
 				}
 
 				await dialogs.setHtml(dialog, generateDialogContext(settings_tags.split(";")));
+
 				
 				const result = await dialogs.open(dialog);
 				var res = result.formData.tag;
@@ -95,8 +96,20 @@ joplin.plugins.register({
 				}
 
 				let tag = res.custom_tag ? res.custom_tag : res.pretag;
+				
+				if(!tag){
+					tag='div'
+				}
 
-				await joplin.commands.execute('replaceSelection',`${newlines ? "\n" : ""}<${tag}${settings_md ? " markdown=1" : ""}>${selectedText.length > 1 ? selectedText : ""}</${tag}>${newlines ? "\n" : ""}`);
+				let newSection;
+
+				if(res.attribute=='none'){
+					newSection=`${newlines ? "\n" : ""}<${tag}${settings_md ? " markdown=1" : ""}>${selectedText.length > 1 ? selectedText : ""}</${tag}>${newlines ? "\n" : ""}`;
+				}else{
+					newSection=`${newlines ? "\n" : ""}<${tag}${settings_md ? " markdown=1" : ""} ${res.attribute}=${res.attrValue}>${selectedText.length > 1 ? selectedText : ""}</${tag}>${newlines ? "\n" : ""}`
+				}
+
+				await joplin.commands.execute('replaceSelection',newSection);
 				await joplin.commands.execute('editor.focus');
 			}
 		});
@@ -120,9 +133,9 @@ function generateDialogContext(tags : String[]) : string {
 	let pretags:string;
 
 	if (tags.length == 1 && tags[0] === "") {
-		pretags = "<p>No predefined tags set.<br>Save a custom one here or set them under:<br><code>Tools > Options > Quick HTML tags</code></p>"
+		pretags = "<p>You can save a custom one here or set them under:<br><code>Tools > Options > Quick HTML tags</code></p>"
 	} else {
-		pretags = `<label for="pretags">Choose a tag:</label><select name="pretag" id="pretags">`
+		pretags = `<label for="pretags">Choose a tag:</label><select name="pretag" id="pretags">`;
 		tags.forEach(tag => pretags += tag !== "" ? `<option value=${tag}>${tag}</option>` : "");
 		pretags += "</select>"
 	};
@@ -134,5 +147,15 @@ function generateDialogContext(tags : String[]) : string {
 		<br>
 		<label for="custom_tag">Enter custom tag:</label>
 		<input id="ctag" type="text" name="custom_tag"/>
+		<br>
+		<h3>set attribute</h3>
+		<select name="attribute" id="attr">
+			<option value="none">none</option>
+            <option value="style">style</option>
+            <option value="id">id</option>
+            <option value="class">class</option>
+        </select>
+        <label for="attrValue">Enter Attribute Value:</label>
+        <input type="text" name="attrValue">
 	</form>`;
 }
