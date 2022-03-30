@@ -4,12 +4,13 @@ This Joplin plugin allows you to add HTML tags more conveniently and quickly.
 
 **Note**: Requires Joplin 2.1+
 
-**Version**: 0.1.1
+**Version**: 0.2.0
 
 ## Preview
 
 ![](docs/example-quick-html-tags.gif)
 
+> Adding attributes to html tags is possible as well
 
 ## Installation
 
